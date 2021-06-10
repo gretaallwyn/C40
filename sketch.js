@@ -44,3 +44,17 @@ function draw(){
     game.end();
   }
 }
+
+function keyPressed(){
+  if(keyCode===13 && gameState===0 && player.name!==""){
+    form.input.hide();
+    form.button.hide();
+    player.name = form.input.value();
+    playerCount+=1;
+    player.index = playerCount;
+    player.update();
+    player.updateCount(playerCount);
+    form.greeting.html("Hello " + player.name)
+    form.greeting.position(displayWidth/2 - 70, displayHeight/4);
+  }
+}
