@@ -1,6 +1,7 @@
 class Game {
   constructor(){
-
+    //load rank images here
+    //this.rank1=loadImage("images/rank1.png");
   }
 
   getState(){
@@ -98,6 +99,20 @@ class Game {
       gameState = 2;
       player.rank +=1
       Player.updateCarsAtEnd(player.rank)
+      
+      //display the rank images when the players cross the finish line
+      /*if(player.rank==1){
+          image(this.rank1,displayWidth/2-200,-displayHeight*4-100,400,400)
+        }
+        if(player.rank==2){
+          image(this.rank2,displayWidth/2-200,-displayHeight*4-100,400,400)
+        }
+        if(player.rank==3){
+          image(this.rank3,displayWidth/2-200,-displayHeight*4-100,400,400)
+        }
+        if(player.rank==4){
+          image(this.rank4,displayWidth/2-200,-displayHeight*4-100,400,400)
+        } */
     }
 
    /*PLAYER RANK AND LEADERBOARD-WASTE / USELESS CODE
