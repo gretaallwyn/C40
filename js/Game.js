@@ -64,13 +64,15 @@ class Game {
         index = index + 1 ;
 
         //position the cars a little away from each other in x direction
-        x = x + 200;
+        x = 200 + (index * 200) + allPlayers[plr].xPos;
         //use data form the database to display the cars in y direction
         y = displayHeight - allPlayers[plr].distance;
         cars[index-1].x = x;
         cars[index-1].y = y;
        // console.log(index, player.index)
-
+       textAlign(CENTER);
+       textSize(20);
+       text(allPlayers[plr].name, cars[index - 1].x, cars[index - 1].y + 75);
        
         if (index === player.index){
           stroke(10);
@@ -129,6 +131,35 @@ result += characters.charAt(Math.floor(Math.random() * charactersLength));
 return result;
 }
 */
+
+
+//to move car left and right line 137 to 157 
+//define a property player.xPos inside constructor of player class
+//define two variables xVel and yVel and initialise to zero in sketch.js
+//change the vlaue to calculate xposition that is variable x in play()
+// additionally you can display the names of the players below the car..optional
+  if(keyIsDown(38) && player.index !== null){
+      yVel += 0.9;
+      if(keyIsDown(37)){
+          xVel -= 0.2;
+      }
+      if(keyIsDown(39)){
+          xVel += 0.2;
+      }
+  }else if(keyIsDown(38) && yVel > 0 && player.index !== null){
+      yVel -= 0.1;
+      xVel *= 0.9;
+  }else{
+      yVel *= 0.985;
+      xVel *= 0.985;
+  }
+
+//move the car
+player.distance += yVel;
+yVel *= 0.98;
+player.xPos += xVel;
+xVel *= 0.985;
+
 
     if(gameState===2 && player.rank===4){
       game.update(2);
