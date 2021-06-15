@@ -12,6 +12,10 @@ var cars, car1, car2, car3, car4;
 
 var track, form_bg,ground,car1_img, car2_img, car3_img, car4_img;
 
+
+yVel = 0;
+xVel = 0;
+
 function preload(){
   track = loadImage("../images/track.jpg");
   car1_img = loadImage("../images/car1.png");
